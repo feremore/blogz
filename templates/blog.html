@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if blog_post %}
+
+
+<h1 style='text-align: center;'>{{blog_post.blog_title}}</h1>
+<p>{{blog_post.blog_content}}</p>
+
+{% else %}
+<h1 style="text-align: center;">Build a Blog</h1>
+    {% if blog_list|length ==0 %}
+        <p>No blog posts yet</p>
+    {% else %}
+        {% for blog in blog_list %}
+            
+        
+        <h1><a href="/blog?id={{blog.id}}"value='{{blog.id}}'><strong>{{blog.blog_title}}</strong></a></h1>
+        <p>{{blog.blog_content}}</p>
+        <p style='font-size: 8px;'>Written by <a href='/blog?user={{username}}'>{{username}}</a>
+        </p>
+        {% endfor %}
+
+    {% endif %}
+    {% endif %}
+{% endblock %}
