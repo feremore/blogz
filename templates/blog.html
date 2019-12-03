@@ -3,11 +3,12 @@
 {% if blog_post %}
 
 
-<h1 style='text-align: center;'>{{blog_post.blog_title}}</h1>
+<h1>{{blog_post.blog_title}}</h1>
 <p>{{blog_post.blog_content}}</p>
-
+<p style='font-size: 12px;'>Written by <a href='/blog?user={{blog_post.owner}}'value='{{blog_post.owner}}'>{{blog_post.owner}}</a>
+</p>
 {% else %}
-<h1 style="text-align: center;">Blog Posts</h1>
+<h1>Blog Posts</h1>
     
     {% if blog_list|length ==0 %}
         <p>No blog posts yet</p>
