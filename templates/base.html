@@ -15,7 +15,17 @@
     
     <body>
         <h4><a href="/">Main Page </a></h4>
+        <h4><a href="/blog"> All Posts</a></h4>
         <h4><a href="/add-blog-post"> Add Blog Entry</a></h4>
+        <h4 style='float: right;'><a href="/login"> Login</a></h4>
+        <h4 style='float: right;'><a href="/logout"> Logout</a></h4>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
         {% block content %}
         {% endblock %}
 
