@@ -39,7 +39,7 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if not user:
-            flash('Invalid username', 'error') 
+            flash('Invalid username or password', 'error') 
             return render_template('login.html')
         if not password == user.password:
             flash('Invalid password', 'error')
